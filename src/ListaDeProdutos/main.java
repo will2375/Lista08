@@ -13,7 +13,7 @@ public class main {
 
 boolean loop= true;
 while (loop){
-        System.out.println("Digite '1' para adicionar produto\n '2' para remover produto\n'3' Para sair");
+        System.out.println("Digite '1' para adicionar produto\n '2' para remover produto\n'3' Para mostrar lista \n '4' para sair");
         int opcao= input.nextInt();
 
         switch (opcao) {
