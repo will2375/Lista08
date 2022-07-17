@@ -7,12 +7,6 @@ import java.util.Scanner;
 public  class Produtos {
 Scanner input = new Scanner(System.in);
 
-public void addproduto(){
-    System.out.println("Digite o nome do produto: ");
-    setProduto(input.next());
-    System.out.println("Digite o valor do produto: ");
-    setValor(input.nextDouble());
-}
     String produto;
     double valor;
 

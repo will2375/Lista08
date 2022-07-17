@@ -8,7 +8,8 @@ public class main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        List<String> produtosList = new ArrayList<>();
+        List<String> produtos = new ArrayList<>();
+        List<Double>valor = new ArrayList<>();
 
 
 boolean loop= true;
@@ -20,26 +21,24 @@ while (loop){
             case 1:
                 System.out.println("Digite o nome do produto");
                 String nomep = input.next();
-                System.out.println("Digite o valor: ");
+                System.out.println("Digite o preço: ");
                 double valorp = input.nextDouble();
-                Produtos produtos = new Produtos();
-                produtos.setValor(valorp);
-                produtos.setProduto(nomep);
-                produtosList.add(nomep);
-                produtosList.add(String.valueOf(valorp));
+                Produtos produto = new Produtos();
+                produto.setProduto(nomep);
+                produto.setValor(valorp);
+                produtos.add(nomep);
+                valor.add(valorp);
                 break;
             case 2:
                 System.out.println("digite o numero do produto para remover: ");
                 int remove = input.nextInt();
-                System.out.println("Digite o numero do valor para remover: ");
-                int remove2 = input.nextInt();
-                produtosList.remove(remove);
-                produtosList.remove(remove2);
+                produtos.remove(remove);
+                valor.remove(remove);
                 break;
             case 3:
-                System.out.println("Os produtos com os preços são: ");
-                for( int i =0; i <produtosList.size(); i++){
-                    System.out.println(i +" : " +produtosList.get(i));
+                System.out.print("Os produtos com os preços são: ");
+                for( int i =0; i <produtos.size(); i++){
+                    System.out.println(i +" :\n " +produtos.get(i) +" R$:"+  valor.get(i));
                 }
             case 4:
                 loop = false;
