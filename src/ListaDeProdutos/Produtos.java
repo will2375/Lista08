@@ -2,33 +2,27 @@ package ListaDeProdutos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Produtos {
+public  class Produtos {
+Scanner input = new Scanner(System.in);
 
-
-    int id;
+public void addproduto(){
+    System.out.println("Digite o nome do produto: ");
+    setProduto(input.next());
+    System.out.println("Digite o valor do produto: ");
+    setValor(input.nextDouble());
+}
     String produto;
     double valor;
 
-    public Produtos() {
-        this.id = id;
+    public Produtos(String produto, double valor) {
         this.produto = produto;
         this.valor = valor;
     }
 
-    public void listagem() {
-        List<Produtos> produtos = new ArrayList<>();
+    public Produtos() {
 
-    }
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getProduto() {
