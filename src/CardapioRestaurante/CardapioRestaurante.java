@@ -1,50 +1,70 @@
 package CardapioRestaurante;
 
+import ListaDeProdutos.ListaDeProdutos;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CardapioRestaurante {
 
-    public static void main(String[] args) {
-            Scanner input = new Scanner(System.in);
-            ArrayList<String> prato = new ArrayList<>();
-            ArrayList<String> ingrediente = new ArrayList<>();
+    String prato;
+    String ingredientes;
 
+    public CardapioRestaurante(String prato, String ingredientes) {
+        this.prato = prato;
+        this.ingredientes = ingredientes;
+    }
+    public  CardapioRestaurante(){}
 
-            boolean loop = true;
-            while (loop) {
-                System.out.println("Digite '1' para adicionar prato\n '2' para remover prato\n'3' Para mostrar pratos \n '4' para sair");
-                int opcao = Integer.parseInt(input.nextLine());
+    Scanner input = new Scanner(System.in);
 
-                switch (opcao) {
-                    case 1:
-                        System.out.print("Digite o nome do prato: ");
-                        String pratoN = input.nextLine();
-                        prato.add(pratoN);
-                        System.out.print("Digite os ingredientes: ");
-                        String ingredientesP = input.nextLine();
-                        ingrediente.add(ingredientesP);
-                        break;
-                    case 2:
-                        System.out.println("digite a posição do prato: ");
-                        int remove = input.nextInt();
-                        prato.remove(remove);
-                        ingrediente.remove(remove);
-                        System.out.println("removido com Sucesso");
-                        break;
-                    case 3:
-                        System.out.print("Os pratos são: ");
-                        for (int i = 0; i < prato.size(); i++) {
-                            System.out.println(i + " :\nprato: " + prato.get(i));
-                        }
-                        break;
-                    case 4:
-                        loop = false;
+    List <CardapioRestaurante> pratos = new ArrayList<>();
 
-                    default:
-                        System.out.println("opçao invalida");
-                }
-            }
+    public void addprato() {
+        System.out.println("Digite o nome do prato: ");
+        prato = input.nextLine();
+        System.out.println("Digite os ingredientes: ");
+        ingredientes = input.nextLine();
+
+        System.out.println("prato: " + prato + ", com os ingredientes: " + ingredientes + " adicionado com sucesso.");
+
+        CardapioRestaurante novoPrato = new CardapioRestaurante (prato, ingredientes);
+        pratos.add(novoPrato);
+    }
+
+    public void exibir() {
+        for (int i = 0; i < pratos.size(); i++) {
+            System.out.println("posição " + i + ": prato: " + pratos.get(i).getPrato() + " ingredientes: " + pratos.get(i).getIngredientes());
         }
     }
+
+    public void excluir() {
+        exibir();
+        System.out.println("digite o numero da posição do prato que será excluido: ");
+        int excluirC = Integer.parseInt(input.nextLine());
+        if (excluirC <= pratos.size()) {
+            pratos.remove(excluirC);
+            System.out.println("prato excluido");
+        } else {
+            System.out.println("prato inexistente");
+        }
+    }
+
+    public String getPrato() {
+        return prato;
+    }
+
+    public void setPrato(String prato) {
+        this.prato = prato;
+    }
+
+    public String getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(String ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+}
+
