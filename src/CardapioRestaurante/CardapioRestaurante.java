@@ -8,22 +8,22 @@ public class CardapioRestaurante {
 
     public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
-            List<String> prato = new ArrayList<>();
-            List<String> ingrediente = new ArrayList<>();
+            ArrayList<String> prato = new ArrayList<>();
+            ArrayList<String> ingrediente = new ArrayList<>();
 
 
             boolean loop = true;
             while (loop) {
                 System.out.println("Digite '1' para adicionar prato\n '2' para remover prato\n'3' Para mostrar pratos \n '4' para sair");
-                int opcao = input.nextInt();
+                int opcao = Integer.parseInt(input.nextLine());
 
                 switch (opcao) {
                     case 1:
                         System.out.print("Digite o nome do prato: ");
-                        String pratoN = input.next();
-                        System.out.print("Digite os ingredientes: ");
-                        String ingredientesP = input.next();
+                        String pratoN = input.nextLine();
                         prato.add(pratoN);
+                        System.out.print("Digite os ingredientes: ");
+                        String ingredientesP = input.nextLine();
                         ingrediente.add(ingredientesP);
                         break;
                     case 2:
@@ -41,6 +41,9 @@ public class CardapioRestaurante {
                         break;
                     case 4:
                         loop = false;
+
+                    default:
+                        System.out.println("opçao invalida");
                 }
             }
         }
