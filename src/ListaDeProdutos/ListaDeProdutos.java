@@ -1,21 +1,17 @@
 package ListaDeProdutos;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public  class Produtos {
-Scanner input = new Scanner(System.in);
-
+public class ListaDeProdutos {
     String produto;
     double valor;
 
-    public Produtos(String produto, double valor) {
+    public ListaDeProdutos(String produto, double valor) {
         this.produto = produto;
         this.valor = valor;
     }
 
-    public Produtos() {
+    public ListaDeProdutos() {
 
     }
 
